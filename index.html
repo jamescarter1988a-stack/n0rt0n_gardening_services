@@ -3,1287 +3,725 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GreenScape Pro - Professional Garden Services USA</title>
+    <meta name="description" content="GreenScape Pro provides premier landscaping, lawn care, and garden design services across the USA. Licensed, insured, and eco-friendly. Get your free quote today.">
+    <meta name="keywords" content="landscaping, lawn care, garden design, tree trimming, irrigation, eco-friendly gardening, professional landscapers USA">
+    <title>GreenScape Pro | Premier Landscaping & Garden Services USA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* --- GLOBAL STYLES --- */
+        :root {
+            --primary-color: #1b4332; /* Deep Forest Green */
+            --secondary-color: #40916c; /* Medium Green */
+            --accent-color: #d8f3dc; /* Light Mint */
+            --text-dark: #212529;
+            --text-light: #6c757d;
+            --white: #ffffff;
+            --off-white: #f8f9fa;
+            --border-color: #dee2e6;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --primary-color: #2d6a4f;
-            --secondary-color: #40916c;
-            --accent-color: #74c69d;
-            --light-color: #d8f3dc;
-            --dark-color: #1b4332;
-            --text-color: #333;
-            --white: #ffffff;
-            --gray: #f5f5f5;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            overflow-x: hidden;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background-color: var(--white);
         }
 
-        /* Navigation */
-        nav {
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-color);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--primary-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 70px;
-            background: linear-gradient(135deg, rgba(45,106,79,0.9), rgba(27,67,50,0.9)), 
-                        url('https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1920&h=1080&fit=crop') center/cover;
-            height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 2rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.3;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: var(--accent-color);
-            color: var(--dark-color);
-        }
-
-        .btn-primary:hover {
-            background: var(--light-color);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-
-        .btn-secondary:hover {
-            background: var(--white);
             color: var(--primary-color);
-            transform: translateY(-3px);
         }
 
-        /* Section Styles */
-        section {
-            padding: 5rem 2rem;
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        ul {
+            list-style-position: inside;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-color);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
+        .section-padding {
+            padding: 80px 0;
         }
 
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            position: relative;
+        .bg-light {
+            background-color: var(--off-white);
+        }
+
+        .bg-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn {
             display: inline-block;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
         }
 
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--accent-color);
-            border-radius: 2px;
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--white);
         }
 
-        .section-title p {
-            color: #666;
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 1.5rem auto 0;
+        .btn-primary:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
         }
 
-        /* Services Section */
-        .services {
-            background: var(--gray);
+        .btn-outline {
+            border: 2px solid var(--white);
+            color: var(--white);
         }
 
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(27, 67, 50, 0.8), rgba(27, 67, 50, 0.8)), url('https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--accent-color);
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* --- SERVICES GRID --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 30px;
         }
 
         .service-card {
             background: var(--white);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-
-        .service-image {
-            height: 220px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .service-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .service-card:hover .service-image img {
-            transform: scale(1.1);
-        }
-
-        .service-content {
-            padding: 2rem;
         }
 
         .service-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .service-content h3 {
-            font-size: 1.5rem;
-            color: var(--dark-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .service-content p {
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        .service-link {
+            font-size: 3rem;
             color: var(--secondary-color);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.3s ease;
+            margin-bottom: 20px;
         }
 
-        .service-link:hover {
-            gap: 1rem;
+        /* --- CONTENT BLOCKS --- */
+        .content-block {
+            margin-bottom: 60px;
         }
 
-        /* Why Choose Us */
-        .features {
-            background: var(--white);
+        .content-block h3 {
+            font-size: 1.8rem;
+            margin-top: 30px;
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+        .feature-list {
+            list-style: none;
         }
 
-        .feature-item {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 10px;
-            transition: background 0.3s ease;
-        }
-
-        .feature-item:hover {
-            background: var(--light-color);
-        }
-
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--primary-color);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin: 0 auto 1.5rem;
-        }
-
-        .feature-item h3 {
-            color: var(--dark-color);
-            margin-bottom: 1rem;
-        }
-
-        /* Gallery Section */
-        .gallery {
-            background: var(--light-color);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .gallery-item {
+        .feature-list li {
             position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            height: 300px;
-            cursor: pointer;
+            padding-left: 30px;
         }
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-overlay {
+        .feature-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
             position: absolute;
-            top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(45,106,79,0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            color: var(--secondary-color);
         }
 
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        .gallery-overlay i {
-            color: var(--white);
-            font-size: 2.5rem;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            background: var(--white);
-        }
-
-        .testimonial-grid {
+        /* --- CONTACT FORM --- */
+        .contact-wrapper {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background: var(--gray);
-            padding: 2rem;
-            border-radius: 15px;
-            position: relative;
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            font-size: 4rem;
-            color: var(--accent-color);
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            opacity: 0.5;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            color: #555;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .author-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .author-info h4 {
-            color: var(--dark-color);
-            margin-bottom: 0.2rem;
-        }
-
-        .author-info .stars {
-            color: #ffc107;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
-            color: var(--white);
-        }
-
-        .contact .section-title h2 {
-            color: var(--white);
-        }
-
-        .contact .section-title p {
-            color: rgba(255,255,255,0.9);
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .contact-item i {
-            font-size: 1.5rem;
-            color: var(--accent-color);
-            margin-top: 0.3rem;
-        }
-
-        .contact-item h4 {
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-form {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 15px;
-            color: var(--text-color);
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 8px;
             font-weight: 600;
-            color: var(--dark-color);
         }
 
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
+        .form-control {
             width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #ddd;
-            border-radius: 8px;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
             font-family: inherit;
-            transition: border-color 0.3s ease;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        /* Footer */
+        /* --- FOOTER --- */
         footer {
-            background: var(--dark-color);
+            background-color: var(--primary-color);
             color: var(--white);
-            padding: 4rem 2rem 1rem;
+            padding: 60px 0 20px;
         }
 
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
-        .footer-section h3 {
+        .footer-col h4 {
             color: var(--accent-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
+            margin-bottom: 20px;
         }
 
-        .footer-section p {
-            line-height: 1.8;
-            opacity: 0.9;
-            margin-bottom: 1rem;
+        .footer-col a {
+            color: #ccc;
+            display: block;
+            margin-bottom: 10px;
         }
 
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-section ul li a {
-            color: rgba(255,255,255,0.9);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .footer-section ul li a:hover {
-            color: var(--accent-color);
-            padding-left: 5px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .footer-col a:hover {
             color: var(--white);
-            transition: all 0.3s ease;
         }
 
-        .social-links a:hover {
-            background: var(--accent-color);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 2rem;
-            text-align: center;
-            opacity: 0.8;
+        .legal-text {
             font-size: 0.9rem;
+            color: #aaa;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
         }
 
-        .footer-bottom a {
-            color: var(--accent-color);
-            text-decoration: none;
+        /* --- LEGAL SECTIONS (Hidden by default, shown via anchor links) --- */
+        .legal-section {
+            background: var(--white);
+            padding: 100px 0;
         }
 
-        /* Responsive Design */
+        .legal-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
         @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                left: -100%;
-                top: 70px;
-                flex-direction: column;
-                background: var(--white);
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
-                padding: 2rem 0;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .hero {
-                margin-top: 70px;
-                height: 80vh;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 250px;
-            }
-
-            section {
-                padding: 3rem 1rem;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .services-grid,
-            .testimonial-grid,
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .service-content {
-                padding: 1.5rem;
-            }
-
-            .contact-form {
-                padding: 1.5rem;
-            }
-        }
-
-        /* Scroll to top button */
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--primary-color);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            transition: all 0.3s ease;
-            z-index: 999;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .scroll-top.visible {
-            opacity: 1;
-        }
-
-        .scroll-top:hover {
-            background: var(--secondary-color);
-            transform: translateY(-5px);
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .contact-wrapper { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <i class="fas fa-leaf"></i>
-                GreenScape Pro
-            </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#testimonials">Reviews</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="tel:+18001234567" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;">Call Now</a></li>
-            </ul>
-            <div class="mobile-menu" id="mobileMenu">
-                <i class="fas fa-bars"></i>
-            </div>
+    <!-- NAVIGATION -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo">
+                    <i class="fas fa-leaf"></i> GreenScape Pro
+                </a>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About Us</a>
+                    <a href="#services">Services</a>
+                    <a href="#process">Our Process</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <a href="#contact" class="btn btn-primary">Get a Quote</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Transform Your Outdoor Space</h1>
-            <p>Professional garden services across the USA. From lawn care to landscape design, we bring your dream garden to life.</p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Get Free Quote</a>
-                <a href="#services" class="btn btn-secondary">Our Services</a>
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>Elevate Your Outdoor Living Experience</h1>
+            <p>Professional, sustainable, and meticulous landscaping services tailored for residential and commercial properties across the United States. We don't just maintain gardens; we cultivate lifestyles.</p>
+            <div style="display: flex; gap: 20px; justify-content: center;">
+                <a href="#contact" class="btn btn-primary">Schedule Consultation</a>
+                <a href="#services" class="btn btn-outline">Explore Services</a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
+    <!-- INTRODUCTION / VALUE PROPOSITION -->
+    <section class="section-padding">
         <div class="container">
-            <div class="section-title">
-                <h2>Our Garden Services</h2>
-                <p>We offer comprehensive garden and landscaping services tailored to meet your needs</p>
+            <div class="content-block" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h2>Why GreenScape Pro is the Preferred Choice for American Homes</h2>
+                <p>In an era where outdoor spaces have become extensions of our living rooms, the demand for professional, reliable, and eco-conscious landscaping has never been higher. At GreenScape Pro, we bridge the gap between aesthetic beauty and environmental responsibility.</p>
+                <p>Unlike generic lawn care services that focus solely on mowing, we take a holistic approach to property management. From soil health analysis to native plant selection, every decision we make is backed by horticultural science and decades of field experience. Our team is not just composed of laborers, but of certified arborists, landscape architects, and irrigation specialists dedicated to preserving the ecological balance of your local environment while enhancing your property's curb appeal.</p>
             </div>
+        </div>
+    </section>
+
+    <!-- DETAILED SERVICES SECTION -->
+    <section id="services" class="section-padding bg-light">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 50px;">Comprehensive Landscape Solutions</h2>
+            
+            <!-- Service 1 -->
+            <div class="content-block">
+                <div class="service-card">
+                    <i class="fas fa-cut service-icon"></i>
+                    <h3>Precision Lawn Care & Maintenance</h3>
+                    <p>A lush, green lawn is the foundation of any beautiful landscape. Our maintenance programs are not one-size-fits-all; they are customized based on your specific grass type, soil composition, and local climate conditions. We understand that different regions of the USA require different care schedules, from the warm-season grasses of the South to the cool-season varieties of the North.</p>
+                    
+                    <h4>Our Maintenance Protocol Includes:</h4>
+                    <ul class="feature-list">
+                        <li><strong>Strategic Mowing:</strong> We adhere to the "one-third rule," never cutting more than one-third of the grass blade at a time to prevent stress and promote deep root growth. Our equipment is regularly sharpened to ensure clean cuts that resist disease.</li>
+                        <li><strong>Edging and Trimming:</strong> Precision edging along driveways, sidewalks, and flower beds creates crisp, clean lines that define your landscape and give it a manicured, professional appearance.</li>
+                        <li><strong>Core Aeration:</strong> Over time, soil becomes compacted, restricting water and nutrient access to roots. Our core aeration service removes small plugs of soil to alleviate compaction, allowing your lawn to breathe and absorb fertilizers more effectively.</li>
+                        <li><strong>Overseeding:</strong> To combat thinning lawns and weed invasion, we introduce high-quality grass seed varieties that are resistant to drought and disease, ensuring a dense, vibrant turf.</li>
+                    </ul>
+                    <p>We also offer seasonal cleanup services, including spring leaf removal and fall winterization, ensuring your lawn remains healthy through every cycle of the year.</p>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="content-block">
+                <div class="service-card">
+                    <i class="fas fa-tree service-icon"></i>
+                    <h3>Arboriculture: Tree Trimming & Removal</h3>
+                    <p>Trees are the long-term investment of your landscape. Proper care extends their lifespan, improves their structure, and ensures the safety of your property. Our certified arborists provide expert tree services that prioritize both the health of the tree and the safety of your home.</p>
+                    
+                    <h4>Tree Health & Safety Services:</h4>
+                    <ul class="feature-list">
+                        <li><strong>Structural Pruning:</strong> Young trees benefit from structural pruning to establish a strong central leader and well-spaced scaffold branches. This prevents future structural failures and reduces the need for heavy corrective pruning later in life.</li>
+                        <li><strong>Crown Thinning & Raising:</strong> For mature trees, we perform crown thinning to improve light penetration and air circulation, which reduces the risk of fungal diseases. Crown raising clears lower branches to provide clearance for pedestrians, vehicles, and structures.</li>
+                        <li><strong>Hazardous Tree Removal:</strong> When a tree is dead, diseased, or structurally compromised, it poses a significant risk. Our team uses advanced rigging techniques and state-of-the-art equipment to safely remove hazardous trees, even in confined spaces, without damaging surrounding property.</li>
+                        <li><strong>Stump Grinding:</strong> After removal, we grind stumps below grade level, allowing you to replant or sod over the area, restoring the usability of your land.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="content-block">
+                <div class="service-card">
+                    <i class="fas fa-drafting-compass service-icon"></i>
+                    <h3>Bespoke Landscape Design & Installation</h3>
+                    <p>Your outdoor space should be a reflection of your personality and lifestyle. Our design-build team works closely with you to create functional, beautiful environments that seamlessly integrate with your home's architecture. Whether you desire a serene Zen garden, a vibrant pollinator haven, or an expansive entertainment area, we bring your vision to life.</p>
+                    
+                    <h4>Design Elements We Specialize In:</h4>
+                    <ul class="feature-list">
+                        <li><strong>Hardscaping:</strong> We install durable, high-quality patios, walkways, retaining walls, and outdoor kitchens using natural stone, pavers, and concrete. Our hardscape designs focus on proper drainage and longevity.</li>
+                        <li><strong>Softscaping:</strong> Our plant selection process prioritizes native species that are adapted to your local climate, requiring less water and maintenance. We create layered planting schemes that provide year-round interest through varied textures, colors, and bloom times.</li>
+                        <li><strong>Water Features:</strong> From tranquil koi ponds to dynamic waterfalls, we design and install water features that add sound, movement, and a sense of calm to your garden.</li>
+                        <li><strong>Outdoor Lighting:</strong> Strategic lighting enhances safety, security, and aesthetics. We use energy-efficient LED fixtures to highlight architectural features, illuminate pathways, and extend the usability of your outdoor spaces into the evening.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="content-block">
+                <div class="service-card">
+                    <i class="fas fa-tint service-icon"></i>
+                    <h3>Smart Irrigation & Water Management</h3>
+                    <p>Water is a precious resource, and efficient usage is critical for both environmental sustainability and cost savings. Our irrigation specialists design and install smart systems that deliver the right amount of water to the right place at the right time.</p>
+                    
+                    <h4>Irrigation Solutions:</h4>
+                    <ul class="feature-list">
+                        <li><strong>Smart Controller Installation:</strong> We install Wi-Fi-enabled controllers that adjust watering schedules based on real-time weather data, preventing overwatering during rain and underwatering during heatwaves.</li>
+                        <li><strong>Drip Irrigation Systems:</strong> Ideal for flower beds, shrubs, and vegetable gardens, drip systems deliver water directly to the root zone, minimizing evaporation and runoff.</li>
+                        <li><strong>High-Efficiency Sprinkler Heads:</strong> We upgrade older systems with rotary nozzles and pressure-regulated heads that distribute water more evenly and efficiently.</li>
+                        <li><strong>Rain Sensor Integration:</strong> Automatic rain sensors shut off the system during precipitation, ensuring you never pay to water your lawn while it's raining.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT US / COMPANY ETHOS -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div>
+                    <h2>Our Commitment to Excellence and Sustainability</h2>
+                    <p>Founded on the principles of integrity, quality, and environmental stewardship, GreenScape Pro has grown from a small local operation to a trusted name in landscaping across multiple states. Our journey has been driven by a simple belief: that beautiful landscapes should not come at the expense of the planet.</p>
+                    
+                    <h3>The GreenScape Difference</h3>
+                    <p>What sets us apart is our rigorous training program and our commitment to continuous education. The landscaping industry is constantly evolving, with new techniques, tools, and plant varieties emerging every year. Our team undergoes regular training to stay ahead of these trends, ensuring that you receive the most modern and effective care possible.</p>
+                    
+                    <p>We are also deeply committed to sustainability. We utilize electric and battery-powered equipment whenever possible to reduce noise pollution and carbon emissions. Our fertilization programs rely on organic and slow-release products that nourish the soil microbiome rather than just forcing rapid, weak growth. By choosing GreenScape Pro, you are partnering with a company that cares about the long-term health of your property and the planet.</p>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1598902108854-d1446a05c28a?auto=format&fit=crop&w=800&q=80" alt="Team working" style="width: 100%; border-radius: 10px; box-shadow: var(--shadow);">
+                    <p style="margin-top: 20px; font-style: italic; text-align: center;">Our team of certified professionals at work.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR PROCESS -->
+    <section id="process" class="section-padding bg-light">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 50px;">How We Work: A Transparent Process</h2>
             <div class="services-grid">
-                <!-- Service 1 -->
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=600&h=400&fit=crop" alt="Lawn Care">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <i class="fas fa-cut"></i>
-                        </div>
-                        <h3>Lawn Care & Mowing</h3>
-                        <p>Regular lawn mowing, edging, and maintenance to keep your grass healthy and beautiful year-round.</p>
-                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                <div class="service-card" style="text-align: center;">
+                    <h3>1. Consultation</h3>
+                    <p>We begin with a thorough site visit. We listen to your goals, assess your soil and existing plants, and discuss your budget. This is a no-obligation meeting designed to build a relationship.</p>
                 </div>
-
-                <!-- Service 2 -->
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=400&fit=crop" alt="Landscaping">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <i class="fas fa-tree"></i>
-                        </div>
-                        <h3>Landscape Design</h3>
-                        <p>Custom landscape design and installation to create stunning outdoor spaces that enhance your property.</p>
-                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                <div class="service-card" style="text-align: center;">
+                    <h3>2. Design & Proposal</h3>
+                    <p>Based on our findings, we create a detailed proposal. For design projects, this includes 3D renderings. For maintenance, it includes a clear schedule and scope of work. No hidden fees.</p>
                 </div>
-
-                <!-- Service 3 -->
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1591853667361-19cd504f4992?w=600&h=400&fit=crop" alt="Garden Maintenance">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <i class="fas fa-seedling"></i>
-                        </div>
-                        <h3>Garden Maintenance</h3>
-                        <p>Complete garden upkeep including weeding, pruning, fertilizing, and seasonal planting services.</p>
-                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                <div class="service-card" style="text-align: center;">
+                    <h3>3. Execution</h3>
+                    <p>Our uniformed, insured team arrives on schedule. We respect your property, cleaning up thoroughly after every visit. You will receive photo updates for major projects.</p>
                 </div>
-
-                <!-- Service 4 -->
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1557429287-b2e26467fc2b?w=600&h=400&fit=crop" alt="Tree Services">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <i class="fas fa-tree"></i>
-                        </div>
-                        <h3>Tree Services</h3>
-                        <p>Professional tree trimming, pruning, removal, and health care by certified arborists.</p>
-                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 5 -->
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600&h=400&fit=crop" alt="Irrigation">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <i class="fas fa-tint"></i>
-                        </div>
-                        <h3>Irrigation Systems</h3>
-                        <p>Installation, repair, and maintenance of sprinkler and drip irrigation systems for water efficiency.</p>
-                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 6 -->
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=600&h=400&fit=crop" alt="Hardscaping">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <i class="fas fa-th-large"></i>
-                        </div>
-                        <h3>Hardscaping</h3>
-                        <p>Patios, walkways, retaining walls, and outdoor living spaces built with quality materials.</p>
-                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 7 -->
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=600&h=400&fit=crop" alt="Pest Control">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <i class="fas fa-bug"></i>
-                        </div>
-                        <h3>Pest & Weed Control</h3>
-                        <p>Eco-friendly pest management and weed control solutions to protect your garden.</p>
-                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 8 -->
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1598902108854-10e335adac99?w=600&h=400&fit=crop" alt="Seasonal Cleanup">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <i class="fas fa-broom"></i>
-                        </div>
-                        <h3>Seasonal Cleanup</h3>
-                        <p>Spring and fall cleanup services including leaf removal, debris clearing, and garden preparation.</p>
-                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 9 -->
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" alt="Mulching">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <i class="fas fa-layer-group"></i>
-                        </div>
-                        <h3>Mulching & Soil Care</h3>
-                        <p>Professional mulching, soil testing, aeration, and fertilization for optimal plant health.</p>
-                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                <div class="service-card" style="text-align: center;">
+                    <h3>4. Follow-Up</h3>
+                    <p>We don't just leave when the job is done. We follow up to ensure your satisfaction and provide tips for ongoing care. We are your long-term partners in landscaping.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section class="features" id="about">
+    <!-- FAQ SECTION -->
+    <section id="faq" class="section-padding">
         <div class="container">
-            <div class="section-title">
-                <h2>Why Choose GreenScape Pro</h2>
-                <p>We're committed to excellence in every project we undertake</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h3>Licensed & Insured</h3>
-                    <p>Fully licensed professionals with comprehensive insurance coverage for your peace of mind.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>On-Time Service</h3>
-                    <p>We respect your time and always arrive as scheduled with fully equipped vehicles.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3>Eco-Friendly</h3>
-                    <p>Sustainable practices and organic solutions that are safe for your family and pets.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-dollar-sign"></i>
-                    </div>
-                    <h3>Competitive Pricing</h3>
-                    <p>Transparent pricing with no hidden fees. Free estimates on all services.</p>
-                </div>
+            <h2 style="text-align: center; margin-bottom: 50px;">Frequently Asked Questions</h2>
+            <div class="content-block">
+                <h3>Do I need to be home during the service?</h3>
+                <p>For routine maintenance like mowing and trimming, you do not need to be home as long as we have access to the yard. For design consultations or initial installations, we recommend being present to discuss details in real-time.</p>
+                
+                <h3>Are you licensed and insured?</h3>
+                <p>Yes, absolutely. GreenScape Pro is fully licensed, bonded, and insured. We carry general liability insurance and workers' compensation coverage to protect both our employees and your property. We are happy to provide certificates of insurance upon request.</p>
+                
+                <h3>What areas do you serve?</h3>
+                <p>We currently serve the greater Austin metropolitan area and surrounding communities. For large-scale commercial projects, we have expanded operations to select regions in Texas and California. Please contact us to verify service availability in your specific zip code.</p>
+                
+                <h3>How do you handle pet safety?</h3>
+                <p>Pet safety is a top priority. We ask that pets be kept indoors or in a secure area during our visit. When we apply any organic treatments, we will inform you of any necessary wait times before it is safe for pets to re-enter the treated areas. All our products are non-toxic and pet-friendly once dried.</p>
+                
+                <h3>Can you help with HOA compliance?</h3>
+                <p>Yes, we are experienced in working with Homeowners Associations (HOAs). We understand the strict guidelines many HOAs enforce regarding lawn height, weed control, and aesthetic standards. We can tailor our maintenance schedule to ensure your property always meets or exceeds HOA requirements, helping you avoid fines.</p>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section class="gallery" id="gallery">
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section-padding bg-primary" style="color: white;">
         <div class="container">
-            <div class="section-title">
-                <h2>Our Recent Projects</h2>
-                <p>Browse through our portfolio of transformed gardens and landscapes</p>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600&h=400&fit=crop" alt="Project 1">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
+            <h2 style="text-align: center; color: white; margin-bottom: 50px;">Start Your Transformation Today</h2>
+            <div class="contact-wrapper">
+                <div>
+                    <h3>Contact Information</h3>
+                    <p>We are ready to answer your questions and provide a free, detailed estimate. Reach out to us via phone, email, or visit our office.</p>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i>
+                        <strong>Headquarters:</strong><br>
+                        123 Green Valley Road, Suite 100<br>
+                        Austin, TX 78701, USA
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <i class="fas fa-phone-alt" style="margin-right: 10px;"></i>
+                        <strong>Phone:</strong><br>
+                        <a href="tel:+18885095191" style="color: white; text-decoration: underline;">(888) 509-5191</a>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <i class="fas fa-envelope" style="margin-right: 10px;"></i>
+                        <strong>Email:</strong><br>
+                        <a href="mailto:info@greenscapepro.com" style="color: white; text-decoration: underline;">info@greenscapepro.com</a>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <i class="fas fa-clock" style="margin-right: 10px;"></i>
+                        <strong>Business Hours:</strong><br>
+                        Mon - Fri: 8:00 AM - 6:00 PM<br>
+                        Sat: 9:00 AM - 4:00 PM<br>
+                        Sun: Closed
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=600&h=400&fit=crop" alt="Project 2">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1598902108854-10e335adac99?w=600&h=400&fit=crop" alt="Project 3">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=400&fit=crop" alt="Project 4">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1557429287-b2e26467fc2b?w=600&h=400&fit=crop" alt="Project 5">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1591853667361-19cd504f4992?w=600&h=400&fit=crop" alt="Project 6">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>What Our Clients Say</h2>
-                <p>Don't just take our word for it - hear from our satisfied customers</p>
-            </div>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">GreenScape Pro transformed our backyard into a paradise. Their attention to detail and professionalism exceeded our expectations. Highly recommended!</p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Sarah M." class="author-img">
-                        <div class="author-info">
-                            <h4>Sarah Mitchell</h4>
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">We've been using their lawn care service for 2 years now. Our lawn has never looked better. Reliable, affordable, and excellent customer service.</p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="John D." class="author-img">
-                        <div class="author-info">
-                            <h4>John Davidson</h4>
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">The team designed and installed our irrigation system perfectly. Water bills are down 40% and our garden is thriving. Great investment!</p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Emily R." class="author-img">
-                        <div class="author-info">
-                            <h4>Emily Rodriguez</h4>
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get Your Free Quote</h2>
-                <p>Ready to transform your outdoor space? Contact us today for a free consultation</p>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Service Areas</h4>
-                            <p>Serving all major cities across the United States including New York, Los Angeles, Chicago, Houston, Phoenix, and more.</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>1-800-GREENSCAPE<br>1-800-473-3672</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>info@greenscapepro.com<br>support@greenscapepro.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h4>Business Hours</h4>
-                            <p>Monday - Friday: 7:00 AM - 7:00 PM<br>Saturday: 8:00 AM - 5:00 PM<br>Sunday: Emergency Services Only</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="quoteForm">
+                
+                <div style="background: white; padding: 40px; border-radius: 10px; color: var(--text-dark);">
+                    <h3 style="color: var(--primary-color);">Request a Free Quote</h3>
+                    <form action="#" method="POST">
                         <div class="form-group">
                             <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required placeholder="John Doe">
+                            <input type="text" id="name" name="name" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                            <input type="email" id="email" name="email" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="(123) 456-7890">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="service">Service Needed</label>
-                            <select id="service" name="service">
-                                <option value="">Select a service...</option>
-                                <option value="lawn-care">Lawn Care & Mowing</option>
-                                <option value="landscape">Landscape Design</option>
-                                <option value="maintenance">Garden Maintenance</option>
+                            <label for="service">Service Type</label>
+                            <select id="service" name="service" class="form-control">
+                                <option value="maintenance">Lawn Maintenance</option>
+                                <option value="design">Landscape Design</option>
                                 <option value="tree">Tree Services</option>
-                                <option value="irrigation">Irrigation Systems</option>
-                                <option value="hardscaping">Hardscaping</option>
-                                <option value="pest">Pest & Weed Control</option>
-                                <option value="cleanup">Seasonal Cleanup</option>
-                                <option value="other">Other</option>
+                                <option value="irrigation">Irrigation</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
+                            <label for="message">Project Details</label>
+                            <textarea id="message" name="message" class="form-control" rows="4"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Request Free Quote</button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Request</button>
+                        <p style="font-size: 0.8rem; margin-top: 10px; color: #666;">By submitting, you agree to our <a href="#privacy-policy">Privacy Policy</a>.</p>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>About GreenScape Pro</h3>
-                <p>Your trusted partner for professional garden and landscaping services across the USA. With over 15 years of experience, we deliver exceptional results that exceed expectations.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>GreenScape Pro</h4>
+                    <p>Leading the way in sustainable, professional landscaping services across the USA. Licensed, Insured, and Dedicated to Quality.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#about">About Us</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal Compliance</h4>
+                    <!-- Critical for Google Ads Policy -->
+                    <a href="#privacy-policy">Privacy Policy</a>
+                    <a href="#terms-of-service">Terms of Service</a>
+                    <a href="#refund-policy">Refund Policy</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect With Us</h4>
+                    <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 </div>
             </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
-                    <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Our Services</a></li>
-                    <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Portfolio</a></li>
-                    <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
-                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
-                </ul>
+            <div class="legal-text">
+                &copy; 2026 GreenScape Pro. All Rights Reserved. | Business License #TX-12345678
             </div>
-            <div class="footer-section">
-                <h3>Our Services</h3>
-                <ul>
-                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Lawn Care</a></li>
-                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Landscape Design</a></li>
-                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Tree Services</a></li>
-                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Irrigation</a></li>
-                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Hardscaping</a></li>
-                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Garden Maintenance</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Legal & Support</h3>
-                <ul>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Terms of Service</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Cookie Policy</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Sitemap</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Service Areas</h3>
-                <ul>
-                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> New York</a></li>
-                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> California</a></li>
-                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Texas</a></li>
-                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Florida</a></li>
-                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Illinois</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> View All Locations</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 GreenScape Pro. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--accent-color);"></i> for beautiful gardens</p>
         </div>
     </footer>
 
-    <!-- Scroll to Top Button -->
-    <div class="scroll-top" id="scrollTop">
-        <i class="fas fa-arrow-up"></i>
-    </div>
+    <!-- PRIVACY POLICY SECTION (Google Ads Requirement) -->
+    <section id="privacy-policy" class="legal-section">
+        <div class="legal-content">
+            <h2>Privacy Policy</h2>
+            <p><strong>Last Updated:</strong> July 24, 2026</p>
+            <p>GreenScape Pro ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website www.greenscapepro.com (the "Site"). Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.</p>
+            
+            <h3>1. Collection of Your Information</h3>
+            <p>We may collect information about you in a variety of ways. The information we may collect on the Site includes:</p>
+            <ul>
+                <li><strong>Personal Data:</strong> Personally identifiable information, such as your name, shipping address, email address, and telephone number, and demographic information, such as your age, gender, hometown, and interests, that you voluntarily give to us when you register with the Site or when you choose to participate in various activities related to the Site, such as online chat and message boards.</li>
+                <li><strong>Derivative Data:</strong> Information our servers automatically collect when you access the Site, such as your IP address, your browser type, your operating system, your access times, and the pages you have viewed directly before and after accessing the Site.</li>
+                <li><strong>Financial Data:</strong> Financial information, such as data related to your payment method (e.g., valid credit card number, card brand, expiration date) that we may collect when you purchase, order, return, exchange, or request information about our services from the Site.</li>
+            </ul>
 
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenu = document.getElementById('mobileMenu');
-        const navLinks = document.getElementById('navLinks');
+            <h3>2. Use of Your Information</h3>
+            <p>Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the Site to:</p>
+            <ul>
+                <li>Create and manage your account.</li>
+                <li>Email you regarding your account or order.</li>
+                <li>Fulfill and manage purchases, orders, payments, and other transactions related to the Site.</li>
+                <li>Generate a personal profile about you to make future visits to the Site more personalized.</li>
+                <li>Compile anonymous statistical data and analysis for use internally or with third parties.</li>
+            </ul>
 
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+            <h3>3. Disclosure of Your Information</h3>
+            <p>We may share information we have collected about you in certain situations. Your information may be disclosed as follows:</p>
+            <ul>
+                <li><strong>By Law or to Protect Rights:</strong> If we believe the release of information about you is necessary to respond to legal process, to investigate or remedy potential violations of our policies, or to protect the rights, property, and safety of others, we may share your information as permitted or required by any applicable law, rule, or regulation.</li>
+                <li><strong>Third-Party Service Providers:</strong> We may share your information with third parties that perform services for us or on our behalf, including payment processing, data analysis, email delivery, hosting services, customer service, and marketing assistance.</li>
+                <li><strong>Marketing Communications:</strong> With your consent, we may share your information with third parties for marketing purposes, as permitted by law.</li>
+            </ul>
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
+            <h3>4. Tracking Technologies (Google Ads Compliance)</h3>
+            <p>We may use cookies, web beacons, tracking pixels, and other tracking technologies on the Site to help customize the Site and improve your experience. When you access the Site, your personal information is not collected through the use of tracking technology. Most browsers are set to accept cookies by default. You can remove or reject cookies, but be aware that such action could affect the availability and functionality of the Site.</p>
+            <p><strong>Google Remarketing:</strong> GreenScape Pro uses Google Ads remarketing to advertise on third-party websites (including Google) to previous visitors to our site. It could mean that we advertise to previous visitors who haven't completed a task on our site, for example using the contact form to make an inquiry. This could be in the form of an advertisement on the Google search results page, or a site in the Google Display Network. Third-party vendors, including Google, use cookies to serve ads based on someone's past visits. Of course, any data collected will be used in accordance with our own privacy policy and Google's privacy policy.</p>
 
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-            } else {
-                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-            }
-        });
+            <h3>5. Security of Your Information</h3>
+            <p>We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.</p>
 
-        // Scroll to Top Button
-        const scrollTopBtn = document.getElementById('scrollTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollTopBtn.classList.add('visible');
-            } else {
-                scrollTopBtn.classList.remove('visible');
-            }
-        });
+            <h3>6. Contact Us</h3>
+            <p>If you have questions or comments about this Privacy Policy, please contact us at:<br>
+            GreenScape Pro<br>
+            123 Green Valley Road, Suite 100<br>
+            Austin, TX 78701<br>
+            info@greenscapepro.com<br>
+            (555) 123-4567</p>
+        </div>
+    </section>
 
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
+    <!-- TERMS OF SERVICE SECTION (Google Ads Requirement) -->
+    <section id="terms-of-service" class="legal-section bg-light">
+        <div class="legal-content">
+            <h2>Terms of Service</h2>
+            <p><strong>Last Updated:</strong> July 24, 2026</p>
+            
+            <h3>1. Agreement to Terms</h3>
+            <p>These Terms of Service constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you") and GreenScape Pro ("we," "us," or "our"), concerning your access to and use of the GreenScape Pro website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the "Site"). You agree that by accessing the Site, you have read, understood, and agreed to be bound by all of these Terms of Service. IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF SERVICE, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SITE AND YOU MUST DISCONTINUE USE IMMEDIATELY.</p>
 
-        // Form Submission
-        document.getElementById('quoteForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your inquiry! We will contact you within 24 hours with your free quote.');
-            this.reset();
-        });
+            <h3>2. Intellectual Property Rights</h3>
+            <p>Unless otherwise indicated, the Site is our proprietary property and all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics on the Site (collectively, the "Content") and the trademarks, service marks, and logos contained therein (the "Marks") are owned or controlled by us or licensed to us, and are protected by copyright and trademark laws and various other intellectual property rights and unfair competition laws of the United States, international copyright laws, and international conventions. The Content and the Marks are provided on the Site "AS IS" for your information and personal use only.</p>
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
+            <h3>3. User Representations</h3>
+            <p>By using the Site, you represent and warrant that: (1) all registration information you submit will be true, accurate, current, and complete; (2) you will maintain the accuracy of such information and promptly update such registration information as necessary; (3) you have the legal capacity and you agree to comply with these Terms of Service; (4) you are not under the age of 13; (5) you are not a minor in the jurisdiction in which you reside, or if a minor, you have received parental permission to use the Site; (6) you will not access the Site through automated or non-human means, such as through a bot, script, or scraper; (7) you will not download, copy, or otherwise use any information from the Site except as expressly authorized by these Terms of Service.</p>
+
+            <h3>4. Services and Pricing</h3>
+            <p>We make every effort to display as accurately as possible the colors, features, specifications, and details of the services we provide. However, we do not guarantee that the colors, features, specifications, and details of the services will be accurate, complete, reliable, current, or free of other errors, and your electronic display may not accurately reflect the actual colors and details of the services. All prices are subject to change without notice. We reserve the right to refuse service to anyone for any reason at any time.</p>
+
+            <h3>5. Limitation of Liability</h3>
+            <p>In no event will we or our directors, employees, or agents be liable to you or any third party for any direct, indirect, consequential, exemplary, incidental, special, or punitive damages, including lost profit, lost revenue, loss of data, or other damages arising from your use of the site, even if we have been advised of the possibility of such damages. Notwithstanding anything to the contrary contained herein, our liability to you for any cause whatsoever and regardless of the form of the action, will at all times be limited to the lesser of the amount paid, if any, by you to us or $100.00 USD.</p>
+
+            <h3>6. Indemnification</h3>
+            <p>You agree to defend, indemnify, and hold us harmless, including our subsidiaries, affiliates, and all of our respective officers, agents, partners, and employees, from and against any loss, damage, liability, claim, or demand, including reasonable attorneys’ fees and expenses, made by any third party due to or arising out of: (1) your Contributions; (2) use of the Site; (3) breach of these Terms of Service; (4) any breach of your representations and warranties set forth in these Terms of Service; (5) your violation of the rights of a third party, including but not limited to intellectual property rights; or (6) any overt harmful act toward any other user of the Site with whom you connected via the Site.</p>
+
+            <h3>7. Governing Law</h3>
+            <p>These Terms shall be governed by and defined following the laws of the State of Texas. GreenScape Pro and yourself irrevocably consent that the courts of Texas shall have exclusive jurisdiction to resolve any dispute which may arise in connection with these terms.</p>
+
+            <h3>8. Contact Us</h3>
+            <p>In order to resolve a complaint regarding the Site or to receive further information regarding use of the Site, please contact us at:<br>
+            GreenScape Pro<br>
+            123 Green Valley Road, Suite 100<br>
+            Austin, TX 78701<br>
+            info@greenscapepro.com</p>
+        </div>
+    </section>
+
+    <!-- REFUND POLICY SECTION (Google Ads Requirement for Transparency) -->
+    <section id="refund-policy" class="legal-section">
+        <div class="legal-content">
+            <h2>Refund and Cancellation Policy</h2>
+            <p><strong>Last Updated:</strong> July 24, 2026</p>
+            
+            <h3>1. Service Satisfaction Guarantee</h3>
+            <p>At GreenScape Pro, we strive for 100% customer satisfaction. If you are not satisfied with our routine maintenance services (e.g., mowing, trimming), please contact us within 24 hours of the service completion. We will return to re-perform the service at no additional charge. If we are unable to rectify the issue to your satisfaction, we may offer a partial or full refund for that specific service visit, at our discretion.</p>
+
+            <h3>2. Cancellation of Recurring Services</h3>
+            <p>For recurring maintenance contracts, you may cancel your service at any time with a written notice (email accepted) given at least 7 days prior to your next scheduled service. There are no early termination fees for standard residential maintenance contracts. Refunds for pre-paid periods will be calculated on a pro-rata basis.</p>
+
+            <h3>3. Project-Based Work</h3>
+            <p>For larger landscape design and installation projects, a deposit is required to secure materials and scheduling. Deposits are non-refundable once materials have been ordered or custom fabrication has begun. If a project is cancelled by the client before work begins, the deposit may be retained to cover administrative costs and lost opportunity, unless cancelled within 48 hours of signing the contract.</p>
+
+            <h3>4. Weather Delays</h3>
+            <p>Please note that landscaping is an outdoor industry subject to weather conditions. We do not offer refunds for delays caused by inclement weather, as these are beyond our control. We will work with you to reschedule services as soon as conditions permit.</p>
+
+            <h3>5. How to Request a Refund</h3>
+            <p>To request a refund or cancellation, please contact our customer service team at info@greenscapepro.com or call (555) 123-4567. Please include your name, account number (if applicable), and a detailed description of the issue.</p>
+        </div>
+    </section>
+
 </body>
 </html>
